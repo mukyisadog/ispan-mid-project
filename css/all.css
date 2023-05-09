@@ -1,0 +1,275 @@
+body {
+    background-color: #e8d6cb;
+}
+
+#container {
+    margin: auto;
+    margin-top: -10px;
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+    width: 1200px;
+}
+
+#navbar {
+    z-index: 1;
+    background-color: #795548;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+    width: 1200px;
+}
+
+.logo {
+    display: inline;
+    padding-left: 30px;
+}
+
+.logo img {
+    height: 50px;
+    vertical-align: text-top;
+}
+
+.menu {
+    float: right;
+    line-height: 50px;
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.menu li {
+    float: left;
+    list-style-type: none;
+    margin: -15px 0;
+}
+
+.menu li a {
+    display: flex;
+    color: #fbf7f4;
+    text-decoration: none;
+    line-height: 50px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding: 0 1em;
+}
+
+.menu li a:hover {
+    background-color: #e8d6cb;
+    color: #795548;
+}
+
+/*  */
+
+#mobileNavbar {
+    display: none;
+}
+
+/*  */
+
+#content-container {
+    border-left: 1px solid #795548;
+    border-right: 1px solid #795548;
+    /* box-sizing: border-box; */
+}
+
+#content {
+    text-align: center;
+}
+
+.pageTitle {
+    padding-top: 50px;
+    margin-top: 0;
+}
+
+.handMadeButton {
+    margin: auto;
+    display: block;
+    text-decoration: none;
+    color: #fbf7f4;
+    line-height: 50px;
+    width: 200px;
+    cursor: default;
+}
+
+.handMadeButton div {
+    background-color: #795548;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #795548;
+    box-sizing: border-box;
+    transition: 0.8s ease-in-out;
+}
+
+.handMadeButton:hover {
+    color: #795548;
+    /* transition: 0.8s ease-in-out; */
+}
+
+.handMadeButton div:hover {
+    width: 200px;
+    background-color: #fbf7f4;
+    border: 1px solid #795548;
+    box-sizing: border-box;
+    transition: 0.8s ease-in-out;
+}
+
+#back-to-top {
+    width: 50px;
+    height: 50px;
+    background-color: #fbf7f4;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    /* text-align: center; */
+    display: none;
+    align-items: center;
+}
+
+#back-to-top img {
+    width: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#footer {
+    background-color: #795548;
+    height: 100px;
+    margin: auto;
+    width: 1200px;
+    margin-bottom: -20px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#left {
+    text-align: left;
+    color: #fbf7f4;
+}
+
+#rights a {
+    text-decoration: none;
+    color: #fbf7f4;
+}
+
+#links {
+    text-align: right;
+}
+
+#links a {
+    color: #fbf7f4;
+    text-decoration: none;
+}
+
+#links i {
+    vertical-align: baseline;
+}
+
+@media screen and (max-width: 1199px) {
+    body {
+        margin: 0;
+    }
+    #container {
+        width: 100%;
+    }
+
+    #navbar {
+        width: 100%;
+    }
+
+    #footer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #container {
+        width: 100%;
+    }
+
+    #navbar {
+        display: none;
+    }
+
+    #mobileNavbar {
+        display: block;
+        position: sticky;
+        top: 0;
+    }
+
+    #mobileNavbar {
+        z-index: 1;
+        position: sticky;
+        background-color: #795548;
+        height: 50px;
+        box-sizing: border-box;
+    }
+
+    .mobileLogo img {
+        height: 50px;
+        float: left;
+        padding-left: 30px;
+    }
+
+    #hamburgerIcon {
+        line-height: 50px;
+    }
+
+    #hamburgerIcon img {
+        float: right;
+        margin-top: 10px;
+        padding-right: 30px;
+    }
+
+    #hamburgerInput {
+        display: none;
+    }
+
+    #hamburgerInput:checked~.menuForMobile {
+        max-height: 250px;
+        box-sizing: border-box;
+    }
+
+    .menuForMobile {
+        padding: 0;
+        margin: 0;
+        clear: both;
+        max-height: 0;
+        overflow: hidden;
+        transition: .5s;
+    }
+
+    .menuForMobile li {
+        list-style-type: none;
+        text-align: center;
+        border-bottom: 1px solid #795548;
+        border-left: 1px solid #795548;
+        border-right: 1px solid #795548;
+    }
+
+    .menuForMobile li a {
+        display: block;
+        line-height: 50px;
+        text-decoration: none;
+        background-color: #e8d6cb;
+        color: #795548;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .menuForMobile li a:hover {
+        background-color: #795548;
+        color: #e8d6cb;
+    }
+
+    #footer {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

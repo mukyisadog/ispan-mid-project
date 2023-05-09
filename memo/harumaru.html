@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春丸餐包：東市店 - 好食地圖</title>
+
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/memo.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- navbar -->
+        <nav id="navbar">
+            <div class="logo"><a href="../index.html"><img src="../img/logo.jpg" alt="" style="height: 50px;"></a></div>
+            <ul class="menu">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- navbar for mobile -->
+        <nav id="mobileNavbar">
+            <div class="mobileLogo"><a href="../index.html"><img src="../img/logo.jpg"></a></div>
+            <label id="hamburgerIcon" for="hamburgerInput"><img src="../img/menu.png"></label>
+            <input type="checkbox" id="hamburgerInput">
+            <ul class="menuForMobile">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- content -->
+        <div id="content-container">
+            <div id="content">
+                <div id="titleImg">
+                    <img src="../img/IMG_3211.jpg" alt=""><br>
+                    <h1>春丸餐包：東市店</h1>
+                </div>
+                <!-- tabs -->
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tab1">詳細資訊</a></li>
+                        <li><a href="#tab2">Google Map</a></li>
+                        <li><a href="#tab3">推薦品項</a></li>
+                    </ul>
+                    <div id="tab1">
+                        <p>
+                            地址：台中市北區五常街27號<br>
+                            電話：04-2206-0168（可以電話預訂呦）<br>
+                            營業時間：07:30-15:00<br>
+                            另外有提供 Line線上點餐、量多外送及宅配，或是在 Uber Eats 也可以找到春丸餐包喔<br>
+                            <a href="https://www.facebook.com/harumarupan/">Facebook 粉絲團</a> |
+                            <a href="https://www.instagram.com/harumarupan/">Instagram</a> |
+                            <a href="http://harumarupan.blogspot.com/">官網</a>
+                        </p>
+                    </div>
+                    <div id="tab2">
+                        <div id="map"></div>
+                        <script
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmYn3coBWpBRKoCkqvqEifGYlzbkts48Y&callback=initMap&v=weekly"
+                            defer>
+                            </script>
+                        <script>
+                            let map;
+                            let marker;
+                            let infowindow;
+
+                            function initMap() {
+                                let shop = { lat: 24.1536, lng: 120.6809 };
+                                map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 15,
+                                    center: shop,
+                                });
+
+                                marker = new google.maps.Marker({
+                                    position: shop,
+                                    map: map,
+                                });
+
+                                infowindow = new google.maps.InfoWindow({
+                                    content: "春丸餐包"
+                                });
+
+                                infowindow.open(map, marker); // 預設打開狀態
+
+                                marker.addListener("click", function () {
+                                    infowindow.open({
+                                        anchor: marker,
+                                        map
+                                    })
+                                })
+                            }
+
+                            window.initMap = initMap;
+                        </script>
+                    </div>
+                    <div id="tab3">
+                        <div class="foodRecommendTab">
+                            <h3>信功熱狗蛋沙拉 $60</h3>
+                            <img src="../img/IMG_0297.jpeg">
+                        </div>
+                        <div class="foodRecommendTab">
+                            <h3>咖哩馬鈴薯起司 $65</h3>
+                            <img src="../img/IMG_0382.jpeg">
+                        </div>
+                    </div>
+                </div>
+                <div class="fullInfo">
+                    <article>
+                        <p>
+                            《春丸餐包製作所》是台中知名漢堡早午餐店「田樂漢堡」的另一個品牌，是被許多人列為到訪台中必吃名單之一。大概是在 2021
+                            年最後一季拓展到中國醫藥大學、中山堂附近的小巷中。店面是原先是老舊的文具店，經過整修之後搖身一變成為充滿慢活氣息的早午餐店，同時延續了田樂漢堡的日系文青風格，整體環境讓人感覺很放鬆舒適。
+                            春丸餐包主打以自培小麥種酵母、熊本製粉皇冠麵粉等原料製作餐包，搭配台、日風格的餡料，提供鹹與甜等接近三十種口味，另外還有厚吐司的選項，不管作為早餐、早午餐或是點心都很適合，多樣化品項讓人選擇障礙大發作
+                            ( •́ㅿ•̀ )
+                        </p>
+                        <h2>春丸餐包製作所東市店外觀、店內環境</h2>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_0313v.jpeg" alt=""></div>
+                            <div><img src="../img/IMG_0307.jpeg" alt=""></div>
+                        </div>
+                        <p>
+                            春丸餐包的外觀以木色+白色的日系風格為主，沒有顯眼的招牌很容易不小心就路過，如果是騎車的朋友可以停在店門口很方便。門的內外都設有等候區，簡約的設計很適合拍美照。
+                        </p>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_0375.jpeg" alt=""></div>
+                            <div><img src="../img/IMG_0294.jpeg" alt=""></div>
+                        </div>
+                        <p>
+                            店內有一段狹長的座位區，這部分是兩人座位，店內比較深的地方有長椅區，適合四人用餐，店內座位總數不多，大概只能容納 15 來位客人。
+                        </p>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_0301.jpeg" alt=""></div>
+                            <div><img src="../img/IMG_2098.jpeg" alt=""></div>
+                        </div>
+                        <p>
+                            比較特別的是這個樓梯，上面是設有座位的，不知道會不會有人真的到上面用餐？因為春丸的餐點是需要到櫃台自取的，要把餐點班上去實在是⋯⋯太辛苦了一點吧( ´•̥ω•̥｀ )
+                            店內的空間大致上就是這樣，別忘了用餐完畢之後需要自行把餐具放到回收區喔。 </p>
+                        <h2>春丸餐包推薦必點</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0297.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>信功熱狗蛋沙拉 $60</h3>
+                                <p>
+                                    信功熱狗是台灣屏東自產的履歷認證品牌，雖然叫「熱狗」不過實際上吃起來是德式香腸(為什麼要這樣)，脆脆的腸衣很有存在感很好吃。蛋沙拉的部分是很單純的水煮蛋+美乃滋，沒有加紅蘿蔔、小黃瓜等配料，是非常純粹的蛋沙拉，這點我非常讚賞。柔軟的餐包搭配德國香腸跟蛋沙拉的組合，個人覺得非常療癒。
+                                    搭配 B 套餐的雞塊與飲料，飲料加價換成紅茶牛奶，紅茶牛奶的奶味稍微多一點，很像自己在家用紅茶加牛奶的味道。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0382.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>咖哩馬鈴薯起司 $65</h3>
+                                <p>
+                                    春丸的咖哩系列口味個人很喜歡，是比較帶有辛香料味的咖哩，咖哩馬鈴薯起司中還加入豬絞肉，整體香氣十足。
+                                    搭配 A 套餐的薯餅跟飲料，另外加點了德式香腸 ($30)，看很多人評論說紅茶很澀，但我是覺得還好，甜度也不會太甜，大概手搖飲料微糖到半糖左右。
+                                </p>
+                            </div>
+                        </div>
+                        <h2>春丸餐包其他餐點介紹</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_1883.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>油漬鮪魚蛋沙拉 $60 (＊含咖哩)</h3>
+                                <p>
+                                    油漬鮪魚本身有加入咖哩調味，也是辛香料比較重的口味，有加入青蔥，不吃蔥的朋友可能不太適合。沒有洋蔥，個人非常讚賞，透過蛋沙拉跟油漬鮪魚這兩項餡料，我覺得春丸完全是挑食者的好朋友！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0469.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>公園烤肉薄蛋燒 $90 (13:00 前販售)</h3>
+                                <p>
+                                    公園起司薄蛋燒裡面的肉片蠻多的，搭配軟軟的玉子燒，是我目前吃過覺得最有飽足感的口味。小缺點是那次吃覺得豬肉的味道有點明顯，不知道是不是常見的情況。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_1885.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>香塔塔甘醋炸雞 $85</h3>
+                                <p>
+                                    這款應該是少數有肉又有菜的品項了，餐包裡面的炸雞跟套餐的炸雞是一樣的，不過搭配酸酸的塔塔醬跟爽脆的生菜解膩許多，甘醋醬的調味也很優秀。
+                                    因為與人同行所以加點了 C 套餐，把套餐的沙拉換成薯餅，成為滿滿炸物的快樂套餐。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0298.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>現炸自製雞塊 (套餐)</h3>
+                                <p>
+                                    春丸的雞塊裹的粉比較少，部位感覺不是用雞腿所以比較乾，不是那種很多汁的日式唐揚雞塊，調味上吃得出用米酒醃漬的味道，加上外皮上的胡椒，雖然不是一吃下去會「喔喔喔超級好吃！」的炸雞，但我還是蠻喜歡的。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0381.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>比利時薯餅 (照片右上角)(套餐) / 德式香腸(照片左上角) $30</h3>
+                                <p>
+                                    兩位沒有獨照的同學。比利時薯餅的外皮是比較脆的，裡面的馬鈴薯塊比較大，跟一般常見的薯餅相比比較不容易碎裂，而且更能吃到馬鈴薯的口感，可以享受單純的原味，不需要沾番茄醬就很好吃！
+                                    德式香腸的長相看起來跟上面的信功熱狗好像不太一樣(不是很確定)，很多汁很好吃的一根香腸。
+                                </p>
+                            </div>
+                        </div>
+                        <h2>春丸東市店內用菜單、價格一覽</h2>
+                        <div class="menuPics">
+                            <img src="../img/IMG_0291.jpeg" alt="">
+                            <img src="../img/IMG_0292.jpeg" alt="">
+                        </div>
+                    </article>
+
+                    <a href="../all-memo.html" class="handMadeButton">
+                        <div>回到列表</div>
+                    </a>
+                    <!-- <a href="../all-memo.html" id="back-to-list">回到列表</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- back-to-top -->
+    <div id="back-to-top"><img src="../img/up-arrow.png"></div>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div id="left">Copyright © 2023 the-sponger.com Rights Reserved.</div>
+        <div id="links">
+            <a href="https://the-sponger.com/"><i class="bi bi-house"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/the.sponger/"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="mailto:thesponger91@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+    </footer>
+    </div>
+
+</body>
+
+</html>

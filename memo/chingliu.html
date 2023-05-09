@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麵屋清流 - 好食地圖</title>
+
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/memo.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- navbar -->
+        <nav id="navbar">
+            <div class="logo"><a href="../index.html"><img src="../img/logo.jpg" alt="" style="height: 50px;"></a></div>
+            <ul class="menu">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- navbar for mobile -->
+        <nav id="mobileNavbar">
+            <div class="mobileLogo"><a href="../index.html"><img src="../img/logo.jpg"></a></div>
+            <label id="hamburgerIcon" for="hamburgerInput"><img src="../img/menu.png"></label>
+            <input type="checkbox" id="hamburgerInput">
+            <ul class="menuForMobile">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- content -->
+        <div id="content-container">
+            <div id="content">
+                <div id="titleImg">
+                    <img src="../img/chingliu.jpg" alt=""><br>
+                    <h1>麵屋清流</h1>
+                </div>
+                <!-- tabs -->
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tab1">詳細資訊</a></li>
+                        <li><a href="#tab2">Google Map</a></li>
+                        <li><a href="#tab3">推薦品項</a></li>
+                    </ul>
+                    <div id="tab1">
+                        <p>
+                            地址：台中市北區五義街125號<br>
+                            ＊位於巷內，停車不太方便，開車的話可以停到中正公園地下停車場，或是到柳川旁繞繞、碰碰運氣看有沒有路邊停車格<br>
+                            ＊搭乘公車可以搭到「中山堂」、「五權學士路口」、「五常里」，這幾站都走路五分鐘內就可以抵達<br>
+                            營業時間：11:30-14:00、17:30-21:00，不過湯賣完就打烊囉。不定時公休，拜訪前別忘了先到粉絲團看看公告！<br>
+                            <a href="https://www.facebook.com/%E9%BA%B5%E5%B1%8B%E6%B8%85%E6%B5%81-101425878983371/">Facebook
+                                粉絲團</a>
+                        </p>
+                    </div>
+                    <div id="tab2">
+                        <div id="map"></div>
+                        <script
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmYn3coBWpBRKoCkqvqEifGYlzbkts48Y&callback=initMap&v=weekly"
+                            defer>
+                            </script>
+                        <script>
+                            let map;
+                            let marker;
+                            let infowindow;
+
+                            function initMap() {
+                                let shop = { lat: 24.1488, lng: 120.6729 };
+                                map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 15,
+                                    center: shop,
+                                });
+
+                                marker = new google.maps.Marker({
+                                    position: shop,
+                                    map: map,
+                                });
+
+                                infowindow = new google.maps.InfoWindow({
+                                    content: "麵屋清流"
+                                });
+
+                                infowindow.open(map, marker); // 預設打開狀態
+
+                                marker.addListener("click", function () {
+                                    infowindow.open({
+                                        anchor: marker,
+                                        map
+                                    })
+                                })
+                            }
+
+                            window.initMap = initMap;
+                        </script>
+                    </div>
+                    <div id="tab3">
+                        <div class="foodRecommendTab">
+                            <h3>清流雞白湯 $220</h3>
+                            <img src="../img/IMG_0091.jpeg">
+                        </div>
+                        <div class="foodRecommendTab">
+                            <h3>鹽味雞清湯 $200</h3>
+                            <img src="../img/IMG_0095.jpeg">
+                        </div>
+                    </div>
+                </div>
+                <div class="fullInfo">
+                    <article>
+                        <p>
+                            麵屋清流是台中市北區新開張的拉麵店，位置就在中山堂對面的巷內，主打雞湯拉麵，並分為雞清湯及雞白湯兩種，除了雞湯拉麵外還有許多拉麵店都會出現的隱藏版主角「叉燒飯」。已經一陣子沒有攝取拉麵能量(?)的我，從看見巷口掛上「麵屋清流」的招牌起就期待不已，實際拜訪後覺得超讚，正好最近天氣開始轉涼了，冷冷的天來碗雞湯拉麵相伴絕對再適合不過！
+                        </p>
+                        <h2>麵屋清流環境</h2>
+                        <p>
+                            跟許多拉麵店一樣人到齊再點餐、禁止解壓縮、嚴禁代排隊，遵守規則才能開開心心享用拉麵 (◦`꒳´◦) 寬敞的騎樓之後應該會擠滿排隊的人吧⋯⋯嗚嗚(?)
+                        </p>
+                        <p>
+                            如果看到點餐機沒人就可以直接進店裡點餐，點好之後拿點餐單跟號碼單到外面等待叫號就可以了，店家有規定人到齊再點餐，再度提醒要好好遵守規定喔！
+                        </p>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_0327.jpeg"></div>
+                            <div><img src="../img/IMG_0128.jpeg"></div>
+                            <div><img src="../img/IMG_0087.jpeg"></div>
+                        </div>
+                        <p>
+                            座位是採吧檯模式，大概可以容納 10 位客人左右，由於座位不多，用完餐後盡快離開讓後面的客人入座是種不需言明的溫柔(?)。師傅將餐點製作完畢後會放置在吧臺上方，自己再端下來，碗 +
+                            麵有一定的重量，端的時候要多小心！另外每人可以免費加麵/飯各一次，各一次耶，各一次喔，大概是大食量朋友的天堂(?)。享用完畢後也別忘記把餐具端上去，方便老闆收拾，另外上方還有放置抹布，離開前隨手清潔一下桌面維持整齊。（不愛拍店內環境照片，還請見諒(
+                            ´•̥ω•̥｀ )）
+                        </p>
+                        <p>
+                            店內空間跟之前在台北去的拉麵店相比起來寬敞舒服許多，光線也很充足，裝潢是走比較簡約的風格，個人很喜歡。簡單的介紹就到這邊，重點拉麵食記就繼續看下去吧！
+                        </p>
+                        <h2>麵屋清流推薦必點</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0091.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>清流雞白湯 $220</h3>
+                                <p>
+                                    第一次拜訪我選的餐點是「清流雞白湯」，鹹度跟麵條硬度可以根據喜好調整，我選的是「日本鹹」跟「麵條硬」，選擇日本鹹的話師傅在製作前會再度確認平時是否是重口味人類。（還有一些客製化選項，文章最後的菜單區有照片可以參考）<br>
+                                    清流雞白湯上面放置舒肥雞叉燒跟豬叉燒，口感都很軟嫩不乾柴，另外還帶一點淡淡檸檬味，為濃郁的雞白湯增加了一點清爽的味道，搭配起來非常棒。還有被淹沒的高麗菜，口感很脆，讚讚讚。麵條的部分使用的是粗麵，才不會吸附過多濃郁的湯汁導致很快就膩口，我選擇偏硬的麵條，口感吃起來有嚼勁。雞白湯湯頭濃郁，帶有微微的奶味，喝起來很滑順，非常喜歡！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0095.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>鹽味雞清湯 $200（溏心蛋 +$30）</h3>
+                                <p>
+                                    同行夥伴點的「鹽味雞清湯」選擇的是鹹度「台灣鹹」及硬度「麵條適中」，另外加點一顆溏心蛋。<br>
+                                    肉品跟清流雞白湯一樣有舒肥雞叉燒及豬叉燒，溏心蛋的熟度很剛好，蛋黃維持在半固態的狀態、不太會流動，可以感受到濃郁的蛋黃，非常療癒。清湯拉麵的麵條則是細麵，不用花太多力氣咀嚼的感覺很棒(來自細麵愛好者的謎之心得)。湯頭因為只有淺嚐所以沒有特別的印象（而且我又先吃了濃郁、日本鹹的雞白湯），只能說喝起來很清爽！等我再去吃你一次(?)！<br>
+                                    ＊更新區：<br>
+                                    再訪的我點了鹽味雞清湯拉麵，鹹度「日本鹹」、硬度「麵條硬」，這次一個人享用了整碗鹽味雞清湯拉麵，雞清湯的味道非常醇厚，雖然上面有層油但也不會感到膩口，在好好品嚐過雞清湯之後，白湯跟清湯我真的沒辦法選出到底更喜歡誰(
+                                    ´•̥ω•̥｀ ) 所以！看心情跟個人喜好挑選吧！兩種都不會讓你失望的！
+                                </p>
+                            </div>
+                        </div>
+                        <h2>麵屋清流其他餐點介紹</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_2060.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>辛辣雞白湯 $240</h3>
+                                <p>
+                                    上方的辣椒絲不知為何讓人看了充滿食慾。我本身吃辣但沒有到非常辣，大概是可以吃M當勞勁辣雞腿堡的程度，小辣對我來說可以接受，濃濃的雞白湯加上辣的香氣，天氣冷的時候吃下這碗應該暖上加暖；中辣對我來說就超過接受範圍了，不過喜歡吃辣的人應該會覺得辣得非常過癮！<br>
+                                    另外，這碗辛辣雞白湯只有日本鹹跟台灣鹹兩種，不像其他的還有風味清淡的選項喔。原本一開始選了日本鹹，但老闆提醒這碗比較鹹，所以建議先點台灣鹹試試看，我自己習慣 +
+                                    喜歡日本鹹也覺得這碗台灣鹹就很夠味了，提供給想嘗試的人參考！ </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_0088.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>原味叉燒飯 $70 （+$60 加購）</h3>
+                                <p>
+                                    個人認為叉燒飯說是隱藏版主角絕對不為過，其中一個原因是鳥胃人根本吃不下一碗麵又吃一碗叉燒飯，而且大多不提供外帶，我非常悲傷(好個人的原因)。這次難得有同行夥伴，雖然兩人食量都不大但還是快樂的加點了叉燒飯並吃得非常撐。<br>
+                                    叉燒飯上主要是雞叉燒，加上少量豬叉燒，上面淋上美乃滋。米粒粒粒分明，很好吃，飯桶人(我)覺得讚！整碗飯口味不算太重，炙燒也很輕微(?)，不過是碗讓人很舒服的飯(?)，吃得下的朋友別錯過他！（別忘惹拉麵有提供免費加麵/飯各一次的服務）
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_2057.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>Cajun 叉燒飯 $80 （+$70 加購）</h3>
+                                <p>
+                                    由於已經吃過原味叉燒飯，於是這次換了 Cajun 口味，其實就是原味叉燒飯把美乃滋改成 Cajun 調製的醬料。Cajun
+                                    其實就是「肯瓊」，也就是近期M當勞又復刻的醬的口味之一，不過那個醬完全不及這碗 Cajun 叉燒飯的風味的百分之一啊 (´･ω･`)
+                                    充滿香料的香氣，口味上有一些些辣味帶有微微的酸 (吃的時候感覺有點東南亞(?)，吃下去真的超級開胃，配上超香的米飯，我可以每天吃這個活下去⋯⋯！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_1911.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>白飯 $free</h3>
+                                <p>
+                                    你沒看錯，我就是要介紹白飯，這個白飯真的好厲害啊啊啊啊啊啊啊流淚！！！<br>
+                                    其實我跟家人的食量都不太大，一般來說吃一碗拉麵就夠了，沒想到家人第一次去的時候，在吃完麵時跟我說「好好吃喔，感覺沒吃飽⋯⋯我想要加白飯餒」，我有點嚇到(好容易受驚)，但反正就跟老闆說要加一碗白飯，白飯送上來的時候很希望自己能吃多一點，白飯真的好香，然後粒粒分明軟硬適中，不配東西我也可以扒完這碗飯！在把飯加入拉麵湯之前推薦可以先品嚐一下白飯！<br>
+                                    一般情況我是不喜歡湯泡飯的，不過白飯加到辛辣雞白湯超級可以！濃郁的白湯包覆香軟的白飯，咀嚼後還會有白飯的香氣，跟麵比起來又是不同的風景啊～吃得下的人真的要加點白飯！貌似也可以說要半碗！這麼好吃的飯一定要好好吃完不要浪費！
+                                    （加到雞清湯我覺得比較還好，不過我不喜歡湯泡飯，有在愛湯泡飯的人還是可以嘗試）
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_2061.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>限量！法式焦糖烤布蕾 $70</h3>
+                                <p>
+                                    我算是布丁/布蕾獵人(?)，看到粉專發出有限量的烤布蕾當然不會錯過！烤布蕾上面的焦糖蠻厚的很有存在感，布蕾本體吃起來蠻滑順的，不是很扎實的那種口感，在光譜(?)上會偏中間的那種感覺(奇怪形容+1)。甜度也很適中不會太甜，如果碰巧有遇見烤布蕾的話也可以嘗試看看，吃完正餐再來份甜點才能讓身心靈都完整(?)。
+                                </p>
+                            </div>
+                        </div>
+                        <h2>麵屋清流菜單、價格一覽</h2>
+                        <div class="menuPics">
+                            <img src="../img/IMG_0602.jpeg" alt="">
+                            <img src="../img/IMG_0084.jpeg" alt="">
+                            <img src="../img/IMG_0085.jpeg" alt="">
+                            <img src="../img/IMG_0603.jpeg" alt="">
+                        </div>
+                    </article>
+
+                    <a href="../all-memo.html" class="handMadeButton">
+                        <div>回到列表</div>
+                    </a>
+                    <!-- <a href="../all-memo.html" id="back-to-list">回到列表</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- back-to-top -->
+    <div id="back-to-top"><img src="../img/up-arrow.png"></div>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div id="left">Copyright © 2023 the-sponger.com Rights Reserved.</div>
+        <div id="links">
+            <a href="https://the-sponger.com/"><i class="bi bi-house"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/the.sponger/"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="mailto:thesponger91@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+    </footer>
+    </div>
+
+</body>
+
+</html>

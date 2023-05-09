@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/memo.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- navbar -->
+        <nav id="navbar">
+            <div class="logo"><a href="../index.html"><img src="../img/logo.jpg" alt="" style="height: 50px;"></a></div>
+            <ul class="menu">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- navbar for mobile -->
+        <nav id="mobileNavbar">
+            <div class="mobileLogo"><a href="../index.html"><img src="../img/logo.jpg"></a></div>
+            <label id="hamburgerIcon" for="hamburgerInput"><img src="../img/menu.png"></label>
+            <input type="checkbox" id="hamburgerInput">
+            <ul class="menuForMobile">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- content -->
+        <div id="content-container">
+            <div id="content">
+                <div id="titleImg">
+                    <img src="../img/eatthree.jpg" alt=""><br>
+                    <h1>食三麵屋</h1>
+                </div>
+                <!-- tabs -->
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tab1">詳細資訊</a></li>
+                        <li><a href="#tab2">Google Map</a></li>
+                        <li><a href="#tab3">推薦品項</a></li>
+                    </ul>
+                    <div id="tab1">
+                        <p>
+                            地址：新北市板橋區光明街87號<br>
+                            電話：02-2956-5318<br>
+                            營業時間：週二到週日 11:30-14:00、17:00-20:30，每週一公休<br>
+                            店內有WiFi！<br>
+                            <a href="https://www.facebook.com/eat3noodles">Facebook 粉絲團</a> |
+                            <a href="https://www.instagram.com/eat3noodles/">Instagram</a>
+                        </p>
+                    </div>
+                    <div id="tab2">
+                        <div id="map"></div>
+                        <script
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmYn3coBWpBRKoCkqvqEifGYlzbkts48Y&callback=initMap&v=weekly"
+                            defer>
+                            </script>
+                        <script>
+                            let map;
+                            let marker;
+                            let infowindow;
+
+                            function initMap() {
+                                let shop = { lat: 25.0038, lng: 121.4622 };
+                                map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 15,
+                                    center: shop,
+                                });
+
+                                marker = new google.maps.Marker({
+                                    position: shop,
+                                    map: map,
+                                });
+
+                                infowindow = new google.maps.InfoWindow({
+                                    content: "食三麵屋"
+                                });
+
+                                infowindow.open(map, marker); // 預設打開狀態
+
+                                marker.addListener("click", function () {
+                                    infowindow.open({
+                                        anchor: marker,
+                                        map
+                                    })
+                                })
+                            }
+
+                            window.initMap = initMap;
+                        </script>
+                    </div>
+                    <div id="tab3">
+                        <div class="foodRecommendTab">
+                            <h3>食三叉燒飯 $55</h3>
+                            <img src="../img/IMG_9044-1024x1024.jpg">
+                        </div>
+                        <div class="foodRecommendTab">
+                            <h3>酸辣皮蛋豆腐 $45</h3>
+                            <img src="../img/IMG_8564-1024x1024.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="fullInfo">
+                    <article>
+                        <p>
+                            食三麵屋是我差不多兩年前剛搬到板橋就有所耳聞的一間店，因為距離府中捷運站走路大概需要 15~20
+                            分鐘，所以並沒有馬上拜訪，沒想到之後偶然一次訪問後就一試成主顧，在全盛時期(?)幾乎每週必吃一或兩次，有點懷疑我跟同行夥伴是否被店員記住⋯⋯總之是一間讓人不惜花 15
+                            分鐘跋山涉水也要吃的一間小店！
+                        </p>
+                        <h2>內部裝潢擺設</h2>
+                        <p>
+                            食三麵屋整間店走復古路線，店內擺設及各個角落的復古酷裝飾(?)都流露出滿滿的懷舊感，每桌上方皆設置一盞復古小燈，桌上擺放以玻璃瓶盛裝的一小株乾燥花，而吧台的牆邊以整排辛香料裝飾，等待餐點的時候可以先在位置上欣賞(?)。
+                        </p>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_8861-scaled.jpg" alt=""></div>
+                            <div><img src="../img/IMG_8653-scaled-e1632149236889.jpg" alt=""></div>
+                            <div><img src="../img/IMG_8635-scaled-e1632149008101.jpg" alt=""></div>
+                        </div>
+                        <h2>食三麵屋推薦必點</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_9044-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>食三叉燒飯 $55</h3>
+                                <p>
+                                    雖然店名是「麵屋」，但身為白飯愛好者我更愛他們家的飯類餐點，白飯煮的粒粒分明、軟硬適中，對白飯嚴格的我給過！熱愛他們家的飯( ˙³˙)
+                                    食三叉燒飯是將叉燒碎塊經過炙燒後鋪在白飯上，另外淋上醬汁的簡單料理，雖然很簡單但是吃下叉燒時口中會充滿淡淡的煙燻味，非常美味，榮登心中必點 no.1！(
+                                    *ˊᵕˋ) 不過叉燒飯的份量不大，食量大的朋友們可能需要再加點其他餐點
+                                    ＊需注意食三叉燒飯是每日限量的，想品嚐的話記得要早點去才不會撲空！（隨著生意越來越好，叉燒飯也越來越難吃到了( ᐪ꒳ᐪ )）
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8564-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>酸辣皮蛋豆腐 $45</h3>
+                                <p>
+                                    有別於一般的皮蛋豆腐，食三麵屋的皮蛋豆腐加入的是酸辣的醬汁，非常特別！酸辣醬汁配豆腐非常順口，也可以壓下皮蛋的腥味，而且真的超級開胃啊～醬汁淋到飯或麵上也非常好吃，食三叉燒飯+酸辣皮蛋豆腐幾乎是我每次都會點的固定套餐！
+                                </p>
+                            </div>
+                        </div>
+                        <h2>其他餐點介紹</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8787-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>食三特盛魯肉飯 $110</h3>
+                                <p>
+                                    食三特盛魯肉飯有兩片叉燒、一顆溏心蛋、豆乾及魯肉醬汁(被叉燒蓋住了沒拍到)，我沒點到叉燒飯時會點它(τωτ)
+                                    特盛魯肉飯的叉燒跟叉燒飯的叉燒相比少了一股煙燻味，就是普通的叉燒(?)；溏心蛋熟度碰運氣，偶爾會比較生，不敢吃的捧油們要注意！我覺得他們家的豆乾很好吃，沒有單賣太可惜了⋯⋯特盛魯肉飯的份量蠻大的，體感(?)覺得應該是叉燒飯的兩倍，是可以吃很飽的選擇！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_9738.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>食三魯肉飯 $35 (圖片下方)</h3>
+                                <p>
+                                    沒有獨照的魯肉飯同學⋯⋯！沒有其他華麗裝飾的純粹滷肉飯！份量跟叉燒飯一樣，魯肉醬汁雖然偏肥但因為份量不多所以不會膩，不太餓或是想吃其他小菜時的好夥伴！ </p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8850-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>黑金魯肉乾拉麵 $80</h3>
+                                <p>
+                                    黑金魯肉乾拉麵是由魯肉醬汁、豆乾、溏心蛋、時蔬組成，魯肉醬汁非常夠味，不過偏肥一些，喜歡其他品種魯肉的朋友們可以考慮繞道。他們家的麵體是屬於粗細適中(?)的那種拉麵，我本身是細麵派還是蠻喜歡的！是我想吃麵食的時候的第一選擇！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8647-scaled.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>香辣麻醬乾拉麵 $80</h3>
+                                <p>
+                                    香辣麻醬乾拉麵附有叉燒一片、溏心蛋半顆以及菜脯，麻醬本身不辣，辣味是由旁邊的辣醬負責，味道個人覺得算中規中矩，麻醬給的量個人覺得偏少，只有特別想吃麻醬麵的時候會點(?)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8563-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>叉燒蔥油乾拉麵 $85</h3>
+                                <p>
+                                    叉燒蔥油乾拉麵有兩片叉燒、半顆溏心蛋及最重要的蔥油，這碗應該是店家的招牌，但我不太懂蔥油所以⋯⋯₍₍ ◝(‘ω’◝ )三( ‘ω’ و(و ⁾⁾ (默默退場)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8609.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>炸雞塊咖哩飯 $185</h3>
+                                <p>
+                                    咖哩是有紅蘿蔔跟馬鈴薯的咖哩，不過量不多，另外有半顆溏心蛋，飯上面有一小片醃漬南瓜。咖哩聞起來蠻香的，但個人認為吃起來普普，只有超級想吃咖哩飯但又身處咖哩沙漠(府中)、很久沒出城(?)的時候會點。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8795.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>自家製炸雞塊 $80</h3>
+                                <p>
+                                    他們家的炸雞塊很多汁我愛⋯⋯！附有高麗菜絲、檸檬片、塔塔醬，一盤五塊炸雞塊可以享受多種組合，不過價位偏高，偶爾想犒賞自己或是有人同行才會點！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8852-1024x1024.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>招牌烤雞翅 $60</h3>
+                                <p>
+                                    充滿香料味的烤雞翅，外皮很酥脆，很香、不錯吃，但是一樣價位偏高。
+                                </p>
+                            </div>
+                        </div>
+                        <h2>食三麵屋菜單</h2>
+                        <div class="menuPics">
+                            <img src="../img/IMG_3535-scaled.jpg" alt="">
+                            <img src="../img/IMG_3536-scaled.jpg" alt="">
+                            <img src="../img/IMG_3537-scaled.jpg" alt="">
+                        </div>
+                    </article>
+
+                    <a href="../all-memo.html" class="handMadeButton">
+                        <div>回到列表</div>
+                    </a>
+                    <!-- <a href="../all-memo.html" id="back-to-list">回到列表</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- back-to-top -->
+    <div id="back-to-top"><img src="../img/up-arrow.png"></div>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div id="left">Copyright © 2023 the-sponger.com Rights Reserved.</div>
+        <div id="links">
+            <a href="https://the-sponger.com/"><i class="bi bi-house"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/the.sponger/"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="mailto:thesponger91@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+    </footer>
+    </div>
+
+</body>
+
+</html>

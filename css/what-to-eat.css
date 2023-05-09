@@ -1,0 +1,156 @@
+#lottery {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+#lottery>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#prepare {
+    width: 50%;
+}
+
+.addOption {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#wantToEat {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #795548;
+    float: left;
+    width: 80%;
+    height: 50px;
+    background: #fbf7f4;
+    box-sizing: border-box;
+}
+
+.addBtn {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    background: #795548;
+    border: 1px solid #795548;
+    border-left: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.addBtn:hover {
+    background: #CEBEBE;
+}
+
+.caption {
+    text-align: left;
+    width: 90%;
+    margin: auto;
+    padding: 20px 0 10px 0;
+}
+
+#foodList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: center;
+}
+
+#foodList>li {
+    border: 1px solid #795548;
+    display: inline-block;
+    width: 90%;
+    line-height: 50px;
+    margin: 5px 0;
+    font-size: 17px;
+    height: 50px;
+    position: relative;
+}
+
+li button {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    background: #795548;
+    border: 0;
+    border-left: 1px solid #795548;
+    cursor: pointer;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* box-sizing: border-box; */
+}
+
+li button:hover {
+    background: #CEBEBE;
+}
+
+#afterDraw {
+    width: 50%;
+}
+
+#afterDraw button {
+    height: 50px;
+    width: 30%;
+    margin: auto;
+    box-sizing: border-box;
+    background: #795548;
+    border: 1px solid #795548;
+    color: #fbf7f4;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#afterDraw button:hover {
+    background: #CEBEBE;
+}
+
+#result {
+    width: 90%;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+#ba {
+    text-align: right;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0 20px 0;
+}
+
+#intro {
+    text-align: left;
+    width: 90%;
+    padding: 20px;
+    border: 1px solid #795548;
+}
+
+@media screen and (max-width: 1199px) {
+    #prepare {
+        width: 500px;
+    }
+
+    #afterDraw {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #prepare {
+        width: 500px;
+    }
+
+    #afterDraw {
+        width: 500px;
+    }
+}

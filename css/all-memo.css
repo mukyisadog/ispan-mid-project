@@ -1,0 +1,216 @@
+#searchIcon {
+    position: absolute;
+    top: 110px;
+    right: 10%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #795548;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #CEBEBE;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#searchForm {
+    margin-top: 70px;
+}
+
+#searchForm input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #795548;
+    float: left;
+    width: 80%;
+    height: 50px;
+    background: #fbf7f4;
+    box-sizing: border-box;
+}
+
+#searchClick {
+    float: left;
+    width: 20%;
+    height: 50px;
+    padding: 10px;
+    background: #795548;
+    border: 1px solid #795548;
+    border-left: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#searchCaption {
+    margin-top: 50px;
+    font-size: 32px;
+}
+
+#searchResult {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px 0;
+    height: 350px;
+    overflow: scroll;
+}
+
+#searchClick:hover {
+    background: #CEBEBE;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#list-of-shop {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}
+
+#btns {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 90%;
+}
+
+.btn {
+    margin: auto;
+    /* margin-bottom: 30px; */
+    text-decoration: none;
+    color: #fbf7f4;
+    background-color: #795548;
+    line-height: 50px;
+    width: 20%;
+    font-size: 16px;
+    border: 1px solid #795548;
+    box-sizing: border-box;
+    transition: 0.8s ease-in-out;
+}
+
+.btn:hover {
+    color: #795548;
+    background-color: #fbf7f4;
+    transition: 0.8s ease-in-out;
+}
+
+#result {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+
+
+/* #list-of-shop>div {
+    width: 300px;
+    margin: 30px 0px;
+} */
+
+/* #list-of-shop a {
+    text-decoration: none;
+    color: #795548;
+} */
+
+/* #list-of-shop img {
+    height: 200px;
+    margin-bottom: 5px;
+} */
+
+#outSide {
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+#outSide img {
+    width: 300px;
+    box-sizing: border-box;
+    transition: 0.8s ease-in-out;
+    opacity: 1;
+    /* border: 3px solid white; */
+    border-radius: 15px;
+}
+
+#outSide:hover #inSide {
+    transition: 0.8s ease;
+    opacity: 1;
+}
+
+#outSide:hover img {
+    transition: 0.8s ease-in-out;
+    opacity: 0.8;
+    /* border: 3px solid #795548; */
+}
+
+#inSide {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #795548e6;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+    transition: 0.8s ease;
+    box-sizing: border-box;
+}
+
+.listLink {
+    display: block;
+    width: 300px;
+    text-decoration: none;
+    color: #fbf7f4;
+    font-weight: bold;
+    font-size: 24px;
+}

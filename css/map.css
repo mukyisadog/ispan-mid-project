@@ -1,0 +1,51 @@
+#mapAndIntro {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+/* table tr td {
+    border: 1px solid black;
+} */
+
+
+#map {
+    /* z-index: -1; */
+    /* margin: auto; */
+    margin-bottom: 20px;
+    height: 500px;
+    width: 550px;
+    /* border: 1px black solid; */
+
+}
+
+#intro {
+    width: 400px;
+    height: 500px;
+    /* border: 1px black solid; */
+    text-align: center;
+    line-height: 30px;
+}
+
+#intro h2 {
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+#intro img {
+    /* margin: 0px; */
+    padding: 20px 0px;
+}
+
+#intro a {
+    text-decoration: none;
+    color: #795548;
+}
+
+#intro a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,137 @@
+#titleImg {
+    height: 300px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#titleImg>img {
+    width: 100%;
+}
+
+#titleImg>h1 {
+    position: absolute;
+    width: 100%;
+    background-color: #7955486b;
+    color: #fbf7f4;
+    padding: 20px 0;
+}
+
+#tabs {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.ui-tabs-panel {
+    height: 400px;
+    line-height: 30px;
+}
+
+/* .ui-widget-header .ui-state-default {
+    width: 200px;
+} */
+
+.ui-widget-header .ui-state-active {
+    background: #795548;
+    border: 1px solid #795548;
+}
+
+.ui-tabs .ui-tabs-nav {
+    background: #fbf7f4;
+}
+
+/* .ui-tabs .ui-tabs-panel just in case you want to change the panel
+{
+background: blue;
+} */
+
+.ui-widget-content a {
+    color: #795548;
+    text-decoration: none;
+}
+
+.ui-widget-content a:hover {
+    text-decoration: underline;
+}
+
+#tab1 {
+    display: flex;
+    align-items: center;
+}
+
+#tab1 p {
+    margin: auto;
+}
+
+#map {
+    height: 400px;
+    width: 80%;
+    margin: auto;
+}
+
+#tab3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.foodRecommendTab>img {
+    height: 300px;
+}
+
+.fullInfo {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+article>p {
+    padding-bottom: 30px;
+}
+
+.infoPics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 30px;
+}
+
+.infoPics img {
+    width: 200px;
+}
+
+.foodRecommend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.foodRecommendPic>img {
+    width: 300px;
+}
+
+.foodRecommendText {
+    padding-bottom: 30px;
+}
+
+/* .menuPics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+} */
+
+.menuPics>img {
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .menuPics>img {
+        width: 100%;
+    }
+}

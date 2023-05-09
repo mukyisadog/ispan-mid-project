@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waku Waku Pasta - 市府店 - 好食地圖</title>
+
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/memo.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/memo.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- navbar -->
+        <nav id="navbar">
+            <div class="logo"><a href="../index.html"><img src="../img/logo.jpg" alt="" style="height: 50px;"></a></div>
+            <ul class="menu">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+        <!-- navbar for mobile -->
+        <nav id="mobileNavbar">
+            <div class="mobileLogo"><a href="../index.html"><img src="../img/logo.jpg"></a></div>
+            <label id="hamburgerIcon" for="hamburgerInput"><img src="../img/menu.png"></label>
+            <input type="checkbox" id="hamburgerInput">
+            <ul class="menuForMobile">
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../all-memo.html">食記一覽</a></li>
+                <li><a href="../map.html">地圖探探</a></li>
+                <li><a href="../what-to-eat.html">今天吃什麼</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- content -->
+        <div id="content-container">
+            <div id="content">
+                <div id="titleImg">
+                    <img src="../img/waku.jpg"><br>
+                    <h1>Waku Waku Pasta - 市府店</h1>
+                </div>
+                <!-- tabs -->
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tab1">詳細資訊</a></li>
+                        <li><a href="#tab2">Google Map</a></li>
+                        <li><a href="#tab3">推薦品項</a></li>
+                    </ul>
+                    <div id="tab1">
+                        <p>
+                            地址：台北市信義區松高路11號4F（捷運市政府站，信義誠品 4 樓）<br>
+                            電話：02-2722-9939 （＊建議先打電話訂位！）<br>
+                            營業時間：週一到週日 11:00-22:00<br>
+                            店內有WiFi！<br>
+                            <a href="https://www.facebook.com/wakuwakupasta/">Facebook 粉絲團</a> |
+                            <a href="https://www.instagram.com/wakuwaku_taipei/">Instagram</a> |
+                            <a href="https://wakuwakuburger.mystrikingly.com/">官網</a>
+                        </p>
+                    </div>
+                    <div id="tab2">
+                        <div id="map"></div>
+                        <script
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmYn3coBWpBRKoCkqvqEifGYlzbkts48Y&callback=initMap&v=weekly"
+                            defer>
+                            </script>
+                        <script>
+                            let map;
+                            let marker;
+                            let infowindow;
+
+                            function initMap() {
+                                let shop = { lat: 25.0399, lng: 121.5659 };
+                                map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 15,
+                                    center: shop,
+                                });
+
+                                marker = new google.maps.Marker({
+                                    position: shop,
+                                    map: map,
+                                });
+
+                                infowindow = new google.maps.InfoWindow({
+                                    content: "Waku Waku Pasta - 市府店"
+                                });
+
+                                infowindow.open(map, marker); // 預設打開狀態
+
+                                marker.addListener("click", function () {
+                                    infowindow.open({
+                                        anchor: marker,
+                                        map
+                                    })
+                                })
+                            }
+
+                            window.initMap = initMap;
+                        </script>
+                    </div>
+                    <div id="tab3">
+                        <div class="foodRecommendTab">
+                            <h3>招牌秘醬唐揚炸雞 $160</h3>
+                            <img src="../img/IMG_6202.jpeg">
+                        </div>
+                        <div class="foodRecommendTab">
+                            <h3>琥珀三溫糖布丁 $110</h3>
+                            <img src="../img/IMG_6205.jpeg">
+                        </div>
+                    </div>
+                </div>
+                <div class="fullInfo">
+                    <article>
+                        <p>
+                            Waku Waku Pasta 是由 Waku Waku Burger 所創立的新品牌，位於信義誠品四樓，四樓繞一圈一定可以找到他！之前造訪過 Waku Waku Burger
+                            三次，算是有點熱愛他們家，不論是食物或是整體風格都很療癒。偶然看見布丁跟戚風蛋糕的照片才知道原來新開了一間義大利麵店（不是被義大利麵耽誤的布丁店），布丁控絕對不能錯過 (ง
+                            `ω´)۶<br>
+                            我是在平日的下午三四點左右去的，沒有訂位但還是順利入座，不過建議如果是平日晚上或假日還是要先訂位比較好，因為 Waku Waku 系列(?)真的很熱門⋯⋯！
+                        </p>
+                        <h2>內部裝潢擺設</h2>
+                        <p>
+                            Waku Waku Pasta
+                            店內整體以帶點灰調的暗紅色為主，桌子為木桌，另外用了許多小的方形磁磚裝飾，店內有種說不出的療癒感。店內有一般的桌椅區跟和室區，和室區靠窗可以欣賞信義區的風景，當天跟同行夥伴只有兩個人，因為懶得拖鞋所以選擇桌椅區，被分配到了面壁的位置(?)，不過紅色的牆作為背景拍起來很美麗我很喜歡
+                            (*•̀ᴗ•́*)و（不太喜歡在店內晃來晃去拍照所以只有面壁的水照）
+                        </p>
+                        <div class="infoPics">
+                            <div><img src="../img/IMG_6193.jpeg" alt=""></div>
+                            <div><img src="../img/IMG_6194.jpeg" alt=""></div>
+                        </div>
+                        <p>
+                            點餐方式是帶位時店員就會提供一張大張的菜單，點好後請店員到桌邊確認就好囉（餐後結帳）。這次跟同行夥伴總共點了兩份主餐（其中一份升級為「梅」套餐）及兩份甜點，就繼續看下去吧 ₍₍
+                            ◝(‘ω’◝ )三( ‘ω’ و(و ⁾⁾
+                        </p>
+                        <h2>Waku Waku Pasta推薦必點</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_6202.jpeg"></div>
+                            <div class="foodRecommendText">
+                                <h3>招牌秘醬唐揚炸雞 $160 （推薦！）</h3>
+                                <p>
+                                    套餐的 160 元開胃前菜選擇的是招牌秘醬唐揚炸雞，只能說 Waku
+                                    出品的炸雞必屬精品(?)，剛起鍋的炸雞還熱騰騰的就送上桌，外皮很酥脆，裡面的雞肉軟嫩又充滿雞汁，超美味但小心燙口！甜甜的醬汁帶一點點點酸，真的⋯⋯好好吃⋯⋯
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_6205.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>琥珀三溫糖布丁 $110（大推薦！！！）</h3>
+                                <p>
+                                    終於輪到我此行的重點！就是這個布丁！果然是沒有讓我失望⋯⋯我好愛他 ｡°(°´ω`°)°｡
+                                    口感綿密又充滿蛋香，上面的奶油也不會膩，搭配布丁一起吃又是另一道風景(?)，焦糖醬的部分帶一點微苦、不會太甜，是會想要一次吃兩個的布丁(?)
+                                </p>
+                            </div>
+                        </div>
+                        <h2>其他餐點介紹</h2>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_6195.jpeg"></div>
+                            <div class="foodRecommendText">
+                                <h3>博多明太子中卷細扁麵 $280</h3>
+                                <p>
+                                    因為比較喜歡清炒義大利麵所以挑了這道，Waku Waku Pasta
+                                    的義大利麵都是細扁麵，我覺得麵條吃起來偏軟，比較不符合我的喜好，不過我不太確定是不是細扁麵主打這種口感(?)（我比較偏好有 Q
+                                    度的直麵，或是更細的天使麵）。口味上我覺得也沒有特別驚艷。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_6199.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>生乳基底唐揚咖哩飯 $270</h3>
+                                <p>
+                                    雖然是義大利麵店但還是點了咖哩飯的友人，但我覺得咖哩飯表現比義大利麵還要好（怎麼這樣），濃郁的咖哩醬搭配薑黃飯，詞窮的我只會說好好吃，好想現在衝去信義誠品。炸雞就不用說了，我一輩子都是
+                                    Waku 炸雞的信徒(???)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_6205.jpeg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>焙茶無花果戚風蛋糕 $110</h3>
+                                <p>
+                                    戚風蛋糕口感很軟綿，不過我對戚風蛋糕比較沒有研究，只能說他是一塊好吃的蛋糕(?)，焙茶醬帶有茶香，也不會太甜，是大人系的甜點！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="foodRecommend">
+                            <div class="foodRecommendPic"><img src="../img/IMG_8647-scaled.jpg" alt=""></div>
+                            <div class="foodRecommendText">
+                                <h3>嵐韻紅茶牛奶泡泡 $110</h3>
+                                <p>
+                                    應該就是鮮奶茶（喂），只有一點點甜，適合不愛甜的人，個人覺得是表現偏普通的同學。
+                                </p>
+                            </div>
+                        </div>
+                        <h2>Waku Waku Pasta 菜單</h2>
+                        <div class="menuPics">
+                            <img src="../img/IMG_6186.jpeg" alt="">
+                            <img src="../img/IMG_6187.jpeg" alt="">
+                            <img src="../img/IMG_6188.jpeg" alt="">
+                            <img src="../img/IMG_6189.jpeg" alt="">
+                            <img src="../img/IMG_6190.jpeg" alt="">
+                            <img src="../img/IMG_6191.jpeg" alt="">
+                            <img src="../img/IMG_6192.jpeg" alt="">
+                        </div>
+                    </article>
+
+                    <a href="../all-memo.html" class="handMadeButton">
+                        <div>回到列表</div>
+                    </a>
+                    <!-- <a href="../all-memo.html" id="back-to-list">回到列表</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- back-to-top -->
+    <div id="back-to-top"><img src="../img/up-arrow.png"></div>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div id="left">Copyright © 2023 the-sponger.com Rights Reserved.</div>
+        <div id="links">
+            <a href="https://the-sponger.com/"><i class="bi bi-house"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/the.sponger/"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="mailto:thesponger91@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+    </footer>
+    </div>
+
+</body>
+
+</html>
